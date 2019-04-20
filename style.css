@@ -1,0 +1,9 @@
+#drink {
+	display: inline-block;
+	width: 100px;
+}
+
+#amount {
+	display: inline-block;
+	width: 30px;
+}

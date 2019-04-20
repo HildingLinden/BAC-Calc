@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator for BAC</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="drinkingCalc.js"></script>
+	</head>
+
+	<body onload="addEvents()">
+		<div id="drinks">
+			<!--Values are Alcohol by volume converted to grams (0.789 kg/m^3) then converted to "standardglas" (12 grams of alcohol)-->
+			<span>
+				<label id="amount">0</label><label id="drink">330ml 8.0%</label><button value="1.74">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">330ml 5.3%</label><button value="1.15">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">330ml 4.6%</label><button value="1.00">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">500ml 8.0%</label><button value="2.63">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">500ml 5.3%</label><button value="1.74">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">500ml 4.6%</label><button value="1.51">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">4cl 40%</label><button value="1.05">Add</button><br>
+			</span>
+			<span>
+				<label id="amount">0</label><label id="drink">4cl 50%</label><button value="1.32">Add</button><br>
+			</span>
+		</div>
+
+		<div id="calculation">
+			<br>
+			<label>Bodyweight in kilograms</label><br>
+			<input type="number" name="bodyWeight" id="bodyWeight">
+			<br><br>
+
+			<label>Sex</label><br>
+			<input type="radio" name="sex" id="male">
+			<label for="male">male</label><br>
+			<input type="radio" name="sex" id="female">
+			<label for="female">female</label><br><br>
+
+			<label>Drinking period in hours</label><br>
+			<input type="number" name="drinkingPeriod" id="drinkingPeriod" step="0.25">
+			<br><br>
+
+			<button id="calculate">Calculate</button>
+			<button id="reset">Reset</button><br><br>
+
+			<label id="permille">Permille: 0.00</label>
+		</div>
+	</body>
+</html>
