@@ -4,58 +4,55 @@
 		<title>Calculator for BAC</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script type="text/javascript" src="drinkingCalc.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+		<script type="text/javascript" src="drinkingCalcV2.js"></script>
 	</head>
 
-	<body onload="addEvents()">
-		<div id="drinks">
-			<!--Values are Alcohol by volume converted to grams (0.789 kg/m^3) then converted to "standardglas" (12 grams of alcohol)-->
-			<span>
-				<label id="amount">0</label><label id="drink">330ml 8.0%</label><button value="1.74">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">330ml 5.3%</label><button value="1.15">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">330ml 4.6%</label><button value="1.00">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">500ml 8.0%</label><button value="2.63">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">500ml 5.3%</label><button value="1.74">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">500ml 4.6%</label><button value="1.51">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">4cl 40%</label><button value="1.05">Add</button><br>
-			</span>
-			<span>
-				<label id="amount">0</label><label id="drink">4cl 50%</label><button value="1.32">Add</button><br>
-			</span>
-		</div>
-
-		<div id="calculation">
+	<body>
+		<div id="bodyStats">
 			<br>
 			<label>Bodyweight in kilograms</label><br>
-			<input type="number" name="bodyWeight" id="bodyWeight">
+			<input type="number" name="bodyWeight" id="bodyWeight" required>
 			<br><br>
 
 			<label>Sex</label><br>
-			<input type="radio" name="sex" id="male">
+			<input type="radio" name="sex" id="male" checked>
 			<label for="male">male</label><br>
 			<input type="radio" name="sex" id="female">
 			<label for="female">female</label><br><br>
-
-			<label>Drinking period in hours</label><br>
-			<input type="number" name="drinkingPeriod" id="drinkingPeriod" step="0.25">
 			<br><br>
-
-			<button id="calculate">Calculate</button>
-			<button id="reset">Reset</button><br><br>
-
-			<label id="permille">Permille: 0.00</label>
 		</div>
+
+		<label>Size of drink in ml</label>
+		<input type="text" id="drinkSizeInput" list="drinkSize" required>
+			<datalist id="drinkSize">
+				<option value="33">
+				<option value="50">
+			</datalist>
+		<br>
+
+		<label>Alcohol strength of drink in %</label>
+		<input type="text" id="drinkStrengthInput" list="drinkStrength" required>
+			<datalist id="drinkStrength">
+				<option value="5.3">
+				<option value="4.6">
+			</datalist>
+		<br>
+
+		<label>Time when you finished the drink (Leave empty for automatic)</label>
+		<input type="date" id="drinkDateInput">
+		<input type="time" id="drinkTimeInput">
+		<br>
+
+		<button onclick="add()">Add</button>
+
+		<h1>Drinks history graph</h1>
+		<div style="position:relative; width: 600px; height: 400px">
+			<canvas id="chart"></canvas>
+		</div>
+
+		<br>
+		<h1>Drinks history list</h1>
+		<ol id="drinksList"></ol>
 	</body>
 </html>
